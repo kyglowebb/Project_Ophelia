@@ -1,0 +1,22 @@
+{
+  "name": "project_ophelia",
+  "version": "1.0.0",
+  "description": "Hotel management system",
+  "main": "new.js",
+  "scripts": {
+    "test": "hello world"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleewebb7/Project_Ophelia.git"
+  },
+  "keywords": [
+    "project"
+  ],
+  "author": "Kylee, Lucerito, Chris, Martin, Messi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyleewebb7/Project_Ophelia/issues"
+  },
+  "homepage": "https://github.com/kyleewebb7/Project_Ophelia#readme"
+}
