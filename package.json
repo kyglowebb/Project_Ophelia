@@ -4,7 +4,7 @@
   "description": "Hotel management system",
   "main": "new.js",
   "scripts": {
-    "test": "hello world"
+    "start": "node new.js"
   },
   "repository": {
     "type": "git",
