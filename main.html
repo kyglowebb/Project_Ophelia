@@ -11,11 +11,19 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  
+   background-image: url("http://www.orangesmile.com/extreme/img/main/simpson-desert_1.jpg");
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+   height: 100%;
+   
+ 
 }
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -58,22 +66,31 @@ body {
     width: 100%;
   }
 }
+
+
 </style>
 </head>
 <body>
 
+
 <h2>CSS Template using Float</h2>
 <p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.</p>
+
 <p>Resize the browser window to see the responsive effect.</p>
 
 <div class="header">
-  <h2>Header</h2>
+  <h2>Welcome!</h2>
+  <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="https://www.thenational.ae/image/policy:1.711004:1520418721/tented-pool-villa.jpg?f=16x9&w=1200&$p$f$w=be71cc3" height="500" width="1090">
 </div>
 
 <div class="row">
+  
+
   <div class="column side" style="background-color:#aaa;">Column</div>
+
   <div class="column middle" style="background-color:#bbb;">Column</div>
   <div class="column side" style="background-color:#ccc;">Column</div>
+  <button type="button">Click Me!</button>
 </div>
 
 <div class="footer">
