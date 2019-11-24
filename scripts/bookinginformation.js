@@ -1,7 +1,8 @@
- class bookingformation
+ export default class bookingformation
 {
-   constructor (_type,_firstname,_lastname,_email,_datereserved, _Arrivaldate,_enddate,roomnumber ){
+   constructor (_ID,_type,_firstname,_lastname,_email,_datereserved, _Arrivaldate,_enddate,roomnumber ){
       this.billr = 0.0;
+      this.ID = _ID;
       this.choice = _type;
       this.firstname = _firstname;
       this.Lastname = _lastname;
@@ -26,4 +27,3 @@
     }
 }
 
-module.exports.bookingformation = bookingformation;
