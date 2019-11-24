@@ -1,40 +1,25 @@
 
 
-class reservation
-{
-   constructor (_type,_firstname,_lastname,_datereserved, _Arrivaldate,_enddate,roomnumber ){
-      this.billr = 0.0;
-      this.choice = _type;
-      this.firstname = _firstname;
-      this.Lastname = _lastname;
-      this.roomnumber= roomnumber;
-      this.datereserverd = _datereserved;
-      this.Arrivaldate = _Arrivaldate;
-      this.enddate = _enddate;
-   }
-   billrate(){
-     return this.billr;
-   }
-     type() {
-       return this.choice;
-   }
-   roomnumber(){
-     return roomnumber;
-   }
-}
-class hotelrooms {
-  constructor() {
+import  bookingformation from './bookinginformation.js';
 
-  }
-}
-
-class pricegenerator
+//starts here
+   class pricegenerator
 {
+    
+
+    //takes in the booking information object 
    constructor ( _reservation, _baserate,_expectedAvgOccupancy)
    {
-        var baserate;
+       //type field var
+       this.type = _reservation.type();
+       //base rate to charge for rooms per night
+       var baserate;
+       //initalizing the baserate for the price gen
        baserate = _baserate;
+       
        console.log(  _reservation.type());
+       
+       //changes the rate discount if any based on the type of reservation
             switch (_reservation.type())
        {
            case "Prepaid":
@@ -55,12 +40,23 @@ class pricegenerator
                break;
        }
       }
+      //allows managers to change the base price 
       setbaserate(_brate){
         return this.baserate = _brate;
       }
+     fetchPrice(){
+         return this.baserate;
+     }
    }
+//ends here
 
-let rese = new reservation("Incentive","martin","Phillip","10/24/2019","11/12/2019","1/1/2020");
+
+
+
+
+//running it & testing 
+
+let rese = new bookingformation("Incentive","martin","Phillip","10/24/2019","11/12/2019","1/1/2020");
 
 let gen = new pricegenerator(rese, 150, 0.5);
 //let roomreseveravtioin = new (rese);
@@ -74,3 +70,5 @@ console.log(rese.Lastname);
 console.log(rese.datereserverd);
 console.log(rese.Arrivaldate);
 console.log(gen.baserate);
+
+
