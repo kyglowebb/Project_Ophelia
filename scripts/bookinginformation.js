@@ -1,5 +1,7 @@
  export default class bookingformation
 {
+  // done
+  // book the customer
    constructor (_ID,_type,_firstname,_email,_datereserved, _Arrivaldate,_enddate,roomnumber ){
       this.billr = 0.0;
       this.ID = _ID;
