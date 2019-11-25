@@ -66,8 +66,38 @@ body {
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+/*find how to center nav bar*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
 </style>
 </head>
+
 <body>
 
 <h2>CSS Template using Float</h2>
@@ -78,14 +108,33 @@ body {
   <h2>Header</h2>
 
 
+<body>
+
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#experience">Gallery</a></li>
+  <li><a href="#reserve">Prices</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+</style>
+</head>
+
+<body>
+
 
 </div>
 
 <div class="row">
-  <div class="column side" style="background-color:#aaa;">Login</div>
-  
+  <div class="column side" style="background-color:#aaa;">
+    <button type="button" class="btn btn-sign up btn-lg">New User</button>
+  </div>
+
   <div class="column middle" style="background-color:#bbb;"></div>
-  <div class="column side" style="background-color:#ccc;">Column</div>
+  <div class="column side" style="background-color:#ccc;">
+  <button type="button" class="btn btn-login btn-lg">Returning User</button></div>
+  
 </div>
 
 <div class="footer">
