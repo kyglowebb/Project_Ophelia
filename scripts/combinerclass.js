@@ -2,8 +2,13 @@ import  bookingformation from './bookinginformation.js';
 import pricegenerator from './pricegenerator.js'
 
 //running it & testing 
+let _ID = 1000;
 
-let rese = new bookingformation("Incentive","martin","Phillip","10/24/2019","11/12/2019","1/1/2020");
+
+_name = document.getElementById("name").value;
+
+_ID++;
+let rese = new bookingformation(_ID,_type,_name,_email,_datereserved, _Arrivaldate,_enddate,roomnumber );
 
 let gen = new pricegenerator(rese, 150, 0.5);
 //let roomreseveravtioin = new (rese);
