@@ -1,5 +1,6 @@
 export default class managementbooking{
 
+    // They can cancel, add, or delete
     constructor(){
 
     }

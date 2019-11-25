@@ -1,6 +1,6 @@
 "use strict";
 var x,y,x;
-
+// ??
 //combination class takes 1. price input 2. registration  input.
 function combine(x,y,z)     //add more inputs as necessary
 {       

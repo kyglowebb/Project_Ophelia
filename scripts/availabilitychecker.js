@@ -1,5 +1,6 @@
 export default class availabilitychecker
 {
+    // This calls the database and checks availability
     constructor(){
         this.Db ;
     } 
