@@ -12,7 +12,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   
-   background-image: url("https://wallpapercave.com/wp/K0HCxt0.jpg");
+   background-color: #3BB9FF;
 
    height: 100%;
    
@@ -54,7 +54,7 @@ body {
 
 /* Style the footer */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #000000;
   padding: 10px;
   text-align: center;
 }
@@ -78,21 +78,7 @@ img {vertical-align: middle;}
   margin: auto;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  /*took out position*/
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
+
 
 /* Position the "next button" to the right */
 .next {
@@ -168,7 +154,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #000000;
 }
 
 li {
@@ -184,7 +170,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #000000;
 }
 
 </style>
@@ -204,12 +190,100 @@ li a:hover {
 </head>
 
 
-  
-
-
 <br>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 ">
+         <div class="list-group ">
+              <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+          
+              <a href="#" class="list-group-item list-group-item-action">New</a>
+
+              <a href="#" class="list-group-item list-group-item-action">Settings</a>
+              
+              
+            </div> 
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Your Profile</h4>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">User Name*</label> 
+                                <div class="col-8">
+                                  <input id="username" name="username" placeholder="Username" class="form-control here" required="required" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">First Name</label> 
+                                <div class="col-8">
+                                  <input id="name" name="name" placeholder="First Name" class="form-control here" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Last Name</label> 
+                                <div class="col-8">
+                                  <input id="lastname" name="lastname" placeholder="Last Name" class="form-control here" type="text">
+                                </div>
+                              </div>
+                             
+                              </div>
+                              <div class="form-group row">
+                                <label for="select" class="col-4 col-form-label">Display Name public as</label> 
+                                <div class="col-8">
+                                  <select id="select" name="select" class="custom-select">
+                                    <option value="admin">Admin</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Email*</label> 
+                                <div class="col-8">
+                                  <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
+                                </div>
+                              </div>
+                             
+                              </div>
+                              <div class="form-group row">
+                                <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
+                                <div class="col-8">
+                                  <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="newpass" class="col-4 col-form-label">New Password</label> 
+                                <div class="col-8">
+                                  <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
+                                </div>
+                              </div> 
+                              <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+                                </div>
+                              </div>
+                            </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
 
 
 
