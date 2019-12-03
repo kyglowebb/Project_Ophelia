@@ -2,16 +2,17 @@ export default class availabilitychecker
 {
     // This calls the database and checks availability
     constructor(){
-        this.Db ;
+        this.Db = roomsDataBase ;
     } 
     fetchDb(){
-        //returns true if it can grab the db
-        //grab data base
-        return true;
+        if (Db != null){
+            return true;
+        }else{
+            return false;
+        }
     }
     checkAvailability(){
-        //return true if there is room.
-        return true;
+        return this.Db.check()         
     }
 
 
