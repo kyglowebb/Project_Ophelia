@@ -8,7 +8,7 @@ function Validate(_custmoreDataBase){
     let custmoreDataBase = _custmoreDataBase;
 
     for (const profile in custmoreDataBase) {
-        if (username == profile.username && password d== profile.username){
+        if (username == profile.username && password == profile.username){
             valid = true;
             break;
         }
