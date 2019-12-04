@@ -1,3 +1,5 @@
+
+
 function register(){
 
     let username = document.register.username.value;
