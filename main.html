@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Project Ophelia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -37,6 +37,22 @@ body {
   width: 25%;
 }
 
+.column.left { /* Place the left button in here */
+  width: 25%;
+  background-color: #FF7F3B;
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.column.right { /* Place the left button in here */
+  width: 25%;
+  background-color: #FF7F3B;
+  float: right;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
 /*This is New User Button on the left */
 .btn {
   border: none;
@@ -49,7 +65,7 @@ body {
 }
 
 .btn:hover {background: #eee;}
-.success {color: green;}
+.success {color: rgb(250, 250, 250);}
 
 
 /* Middle column */
@@ -71,7 +87,7 @@ body {
 
 /* Style the footer */
 .footer {
-  background-color:#3BB9FF;
+  background-color:rgb(244, 246, 247);
   padding: 10px;
   text-align: center;
 }
@@ -134,15 +150,18 @@ li a:hover {
 </head>
 
 <body>
-  <button class="btn success">Success</button>
-
+  
 
 </div>
 
 <div class="row">
   <div class="column side" style="background-color:#aaa;">
-   <button class="btn success">Success</button>
+   <button class="btn success">Sign Up</button>
   </div>
+
+  <div class="column right" style="background-color:#aaa;">
+    <button class="btn success">Log in</button>
+   </div>
 
   <div class="column middle" style="background-color:#bbb;"></div>
   <div class="column side" style="background-color:#ccc;">
@@ -151,9 +170,12 @@ li a:hover {
 </div>
 
 <div class="">
-  <p>Footer</p>
 </div>
 
+<footer background-color: #FF7F3B;>
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+</footer>
 
 </body>
 </html>
