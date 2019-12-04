@@ -1,4 +1,4 @@
-import  {addcustomer} from './databasehandler.js';
+import  {addcustomer,checkcuslogin} from './databasehandler.js';
 
 
 function Validate(){
@@ -6,13 +6,8 @@ function Validate(){
     let password = document.getElementById("inputPassword").value;
     let valid = false; 
    
-
-    for (const profile in custmoreDataBase) {
-        if (username == profile.username && password == profile.username){
-            valid = true;
-            break;
-        }
-    }
+    valid = checkcuslogin(username,password);
+    
     if (valid){
         alert("login was successful");
         window.location = "./main.html";
