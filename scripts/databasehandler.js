@@ -20,8 +20,15 @@ let sqlRoom = `SELECT  RoomNumber RN,
                   CurrentlyAvailable CA,    
                   Datesreserved DR             
                   FROM Room`;
+let sqlAvalRoom = `SELECT  RoomNumber RN,
+                  CurrentlyAvailable CA,    
+                  Datesreserved DR             
+                  FROM Room
+                  WHERE CurrentlyAvailable=?`;
 
-
+let roomN = 0;
+let roomArray = new Array(45);
+let vaild = 'F';
 // open the database
 let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
@@ -85,58 +92,64 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
         console.log(`Row(s) deleted ${this.changes}`);
       });
 }
-let roomnumber = 0;
-function checkAvailRoom(roomNumber){
-  let vaild = 'F';
-  db.all(sqlRoom, [], (err, rows) => {
+
+function checkAvailRoom(){
+ 
+   db.all(sqlRoom, [], (err, rows) => {
     if (err) {
               throw err;
     }
     rows.forEach((row) => {    
           if(row.CA == 'T' ){                
-              console.log('Room Number : '+row.RN+' , Ava? : $'+row.CA+' , Date reserved : $'+row.DR+' ');
-              vaild = 'T';
-              
-              roomNumber = row.RN;
-              console.log(roomNumber);
+              console.log('Room Number  : '+row.RN+' , Ava? : $'+row.CA+' , Date reserved : $'+row.DR+' ');              
+              vaild ='T';
+             
+              roomN = row.RN;             
+                   
             
           }
     });
-      if (vaild == 'F'){
+    if (vaild == 'F'){
         console.log("no rooms are available");
-        roomnumber = 0;        
-      }            
+        
+    }
+
+    
+                    
   });
+  
+  
+   
 }
 
 function lookRoomUp(RoomNumber){
+  
   db.all(sqlRoom, [], (err, rows) => {
     if (err) {
               throw err;
-    }
+    }else{
+
     rows.forEach((row) => {    
           if(row.RN == RoomNumber ){                
               console.log('Room Number : '+row.RN+' , Ava? : $'+row.CA+' , Date reserved : $'+row.DR+' ');
               vaild = 'T';
-              return true;
+              return row.RN;
           }
     });
       if (vaild == 'F'){
-        console.log("no rooms are available");
-        return false;
-      }            
+        console.log("no room matches");
+        return 'F';
+      }          
+    }  
   });
 
 }
 
-function getNextAvailRoom(){
-  checkAvailRoom(roomnumber);
 
- console.log(roomnumber);
-  if(roomnumber == 0){
-     
+
+function getNextAvailRoom(temp){
   
-      db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['F',roomnumber], function(err) {
+      db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['F',temp], function(err) {
         if (err) {
           return console.error(err.message);
         }else{
@@ -149,12 +162,17 @@ function getNextAvailRoom(){
       
 
        
-  }
+
+      
 }
 
-
-
 getNextAvailRoom();
+checkAvailRoom();
+
+
+
+
+
 
 
 
