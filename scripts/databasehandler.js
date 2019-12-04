@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 
  
 // open the database
-let db = new sqlite3.Database('./database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
+let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
   }
@@ -27,10 +27,10 @@ db.all(sql, [], (err, rows) => {
               console.log(row.name);
             });
           });
- function addcustomer(name,email,dateRese,ReseID){
+ function addcustomer(name,email,roomnumber,dateRese,ReseID){
 
 
-  var x='INSERT INTO Customer(Customername,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+',email," ",dateRese,ReseID)';
+  var x='INSERT INTO Customer(CustomerName,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+','+email+','+roomnumber+','+dateRese+','+ReseID+')';
   db.run(x, [], function(err) {
     if (err) {
       return console.log(err.message);
@@ -40,7 +40,7 @@ db.all(sql, [], (err, rows) => {
   });
  
  }         
- addcustomer();
+ addcustomer("martin","martinmail","6","12/3/19","1235");
 db.close((err) => {
   if (err) {
     console.error(err.message);
