@@ -30,7 +30,7 @@ db.all(sql, [], (err, rows) => {
  function addcustomer(name,email,roomnumber,dateRese,ReseID){
 
 
-  var x='INSERT INTO Customer(CustomerName,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+','+email+','+roomnumber+','+dateRese+','+ReseID+')';
+  var x='INSERT INTO Customer(CustomerName,Email,RoomNumber,DatesReserved,ReservationID) VALUES("martin","email","roomnumber","dateRese","ReseID")';
   db.run(x, [], function(err) {
     if (err) {
       return console.log(err.message);
