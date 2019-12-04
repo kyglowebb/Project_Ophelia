@@ -38,7 +38,7 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
 });
 
           
-  function addcustomer(name,email,roomnumber,dateRese,ReseID){    
+  export function addcustomer(name,email,roomnumber,dateRese,ReseID){    
       let x ='INSERT INTO Customer(CustomerName,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+','+email+','+roomnumber+','+dateRese+','+ReseID+')';
        db.run(x, [], function(err) {
       if (err) {
@@ -49,7 +49,7 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
     }); 
   }         
  
-  function checkcuslogin(username,password){      
+ export function checkcuslogin(username,password){      
 
       db.all(sqlCustmore, [], (err, rows) => {
           if (err) {
@@ -66,7 +66,7 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
           });
         });
   }
-  function getReservation(ID){
+  export function getReservation(ID){
     db.all(sqlReservation, [], (err, rows) => {
       if (err) {
                 throw err;
@@ -84,7 +84,7 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
 
 
   }
- function deleteCustomre(email){
+ export function deleteCustomre(email){
     db.run(`DELETE FROM Customer WHERE Email=?`, email, function(err) {
       if (err) {
         return console.error(err.message);
@@ -93,7 +93,7 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
       });
 }
 
-function checkAvailRoom(){
+export function checkAvailRoom(){
  
    db.all(sqlRoom, [], (err, rows) => {
     if (err) {
@@ -122,7 +122,7 @@ function checkAvailRoom(){
    
 }
 
-function lookRoomUp(RoomNumber){
+export function lookRoomUp(RoomNumber){
   
   db.all(sqlRoom, [], (err, rows) => {
     if (err) {
@@ -147,7 +147,7 @@ function lookRoomUp(RoomNumber){
 
 
 
-function getNextAvailRoom(temp){
+export function getNextAvailRoom(temp){
   
       db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['F',temp], function(err) {
         if (err) {
