@@ -1,9 +1,9 @@
 
 
 
-function Validate(_custmoreDataBase){
-    let username = document.login.username.value;
-    let password = doucment.lgoin.password.value;
+function Validate(){
+    let username = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
     let valid = false; 
     let custmoreDataBase = _custmoreDataBase;
 
