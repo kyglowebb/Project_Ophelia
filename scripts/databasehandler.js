@@ -29,7 +29,9 @@ db.all(sql, [], (err, rows) => {
           });
  function addcustomer(name,email,dateRese,ReseID){
 
-  db.run(`INSERT INTO Customer(Customername,Email,RoomNumber,DatesReserved,ReservationID) VALUES(name,email," ",dateRese,ReseID)`, [], function(err) {
+
+  var x='INSERT INTO Customer(Customername,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+',email," ",dateRese,ReseID)';
+  db.run(x, [], function(err) {
     if (err) {
       return console.log(err.message);
     }
