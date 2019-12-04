@@ -1,11 +1,11 @@
-
+import  {addcustomer} from './databasehandler.js';
 
 
 function Validate(){
     let username = document.getElementById("inputEmail").value;
     let password = document.getElementById("inputPassword").value;
     let valid = false; 
-    let custmoreDataBase = _custmoreDataBase;
+   
 
     for (const profile in custmoreDataBase) {
         if (username == profile.username && password == profile.username){
@@ -18,7 +18,7 @@ function Validate(){
         window.location = "./main.html";
         return false;
     }else{
-        alert("login was not successful, please try again.")
+        alert("login was not successful, please try again.");
     }
     
 
