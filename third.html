@@ -66,6 +66,7 @@ li a:hover {
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Returning User Logs In Here</h5>
+
             <form class="form-signin">
               <div class="form-label-group">
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -81,12 +82,38 @@ li a:hover {
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
-                 <a href="third_user.html">Sign in </a>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="Validate()">
+                 <a href="thirds_user_account">login </a> 
               </button>
               <hr class="my-4">
            
             </form>
+<script >
+function Validate(){
+    let username = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    let valid = false; 
+   
+ if(username=="BillTheScienceGuy@gmail.com"& password=="1234")
+ {
+  valid=true;
+ }
+ else
+ {
+  valid=false;
+ }
+    
+    if (valid){
+        alert("login was successful");
+        window.location = "./main.html";
+        return false;
+    }else{
+        alert("login was not successful, please try again.");
+    }
+    
+
+}</script>
+
           </div>
         </div>
       </div>
@@ -106,6 +133,7 @@ li a:hover {
 </div>
 
 <script src="scripts/custmoreLogin.js" type="module"></script>
+
 </body>
 </html>
 
