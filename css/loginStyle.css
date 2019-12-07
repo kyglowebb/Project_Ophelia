@@ -2,7 +2,7 @@
 
 .login-page {
   width: 360px;
-  padding: 21% 0 0;
+  padding: 15% 0 0;
   margin: auto;
 }
 .form {
@@ -89,7 +89,8 @@
   color: #EF3B3A;
 }
 body {
-  
-  background: linear-gradient(to left, #FFDAB9, #DEB887);
+background: linear-gradient(to left, #FFDAB9, #DEB887);
+ 
+
   
 }
