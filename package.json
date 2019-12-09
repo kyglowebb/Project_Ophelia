@@ -2,9 +2,9 @@
   "name": "project_ophelia",
   "version": "1.0.0",
   "description": "Hotel management system",
-  "main": "server.js",
+  "main": "new.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node new.js"
   },
   "repository": {
     "type": "git",
