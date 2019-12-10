@@ -15,7 +15,13 @@ let sqlCustmore = `SELECT CustomerName name,
                   EmployeeId EmpID,
                   Password pass
                   FROM Employee`;
-let sqlReservation =`SELECT ReservationID ID, 
+let sqlReservation =`SELECT ReservationID ID,
+                  RoomNumber RN,
+                  DateReserved DA,
+                  ReservationStatus RS,
+                  ReservationType RTs,
+                  StartDate SD,
+                  EndDate ED,
                   AmountOwed AO,                  
                   AmountPaid AP,
                   DatePaid DP                
@@ -30,15 +36,11 @@ let sqlAvalRoom = `SELECT  RoomNumber RN,
                   FROM Room
                   WHERE CurrentlyAvailable=?`;
 
-
+ const fs = require('fs');
                   
 
 let vaild = 'F';
-let reservation = { 
-  "ReseID"  :  "1001", 
-  "Start"   :  "Shark", 
-  "End"   :   ""  
-}
+
 
 // open the database
 let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
@@ -242,33 +244,35 @@ function EditEmployeeAdStatus(EmployeeID){
   });
 }
 
-function setreservationDate(date){
+function setreservationDate(Sdate){
   db.all(sqlReservation, [], (err, rows) => {
     if (err) {
               throw err;
     }
+    let lastresID = 0;
     rows.forEach((row) => {    
                        
-              console.log('Reservation ID : '+row.ID+' , Amount paid : $'+row.AP+' , AmountOwed : $'+row.AO+' , date paid '+row.DP+'');
-              
-          
+              console.log('Reservation ID : '+row.ID+' , Amount paid : $'+row.AP+' , AmountOwed : $'+row.AO+' , date paid '+row.DP+', Start date : '+row.SD+'');
+         
+             
+          lastresID = row.ID;
     });
-    
-  });
-  db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['T',row.RN], function(err) {
-    if (err) {
-             return console.error(err.message);
-            }else{
-                  console.log(`Row(s) updated: ${this.changes}`);
-           }
-});
-  
+    console.log(lastresID);
+    db.run('UPDATE Reservation SET StartDate=?  WHERE ReservationID=?', [Sdate,lastresID], function(err) {
+      if (err) {
+               return console.error(err.message);
+              }else{
+                    console.log(`Row(s) updated: ${this.changes}`);
+             }
+  });   
 
-
+  }); 
 }
-
+function createRese(){
+  
+}
  
-
+setreservationDate('12/12/152');
 
 
 db.close((err) => {
@@ -278,3 +282,5 @@ db.close((err) => {
   console.log('Close the database connection.');
  
 });
+
+
