@@ -92,7 +92,10 @@ li a:hover {
 
 <!-- end of top bar navigation. -->
     
-  
+    
+<h2></h2>
+<p></p>
+<p></p>
 
 <div class="header">
   <h2>Header</h2>
@@ -131,20 +134,39 @@ li a:hover {
               </button>
               <hr class="my-4">
            
-
             </form>
             
+<script >
+function Validate(){
+    let username = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    let valid = false; 
+   
+ if(username=="BillTheScienceGuy@gmail.com"& password=="1234")
+ {
+  valid=true;
+ }
+ else
+ {
+  valid=false;
+ }
+    
+    if (valid){
+        alert("login was successful");
+        window.location = "./main.html";
+        return false;
+    }else{
+        alert("login was not successful, please try again.");
+    }
+    
 
+}</script>
 
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-  <script src="./scripts/custmoreLogin.js"></script>
-  <script src="./scripts/databasehandler.js"></script>
 </body>
 
   </div>
@@ -157,6 +179,8 @@ li a:hover {
 <div class="">
   <p></p>
 </div>
+
+
 
 
 </body>

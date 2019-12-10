@@ -216,6 +216,7 @@ function EditEmployeeAdStatus(EmployeeID){
 }
 
 
+
  function MakeRoomsAVA(){  
    db.all(sqlRoom, [], (err, rows) => {
     if (err) {
@@ -237,7 +238,30 @@ function EditEmployeeAdStatus(EmployeeID){
   });
 }
 
+function setreservationDate(date){
+  db.all(sqlReservation, [], (err, rows) => {
+    if (err) {
+              throw err;
+    }
+    rows.forEach((row) => {    
+                       
+              console.log('Reservation ID : '+row.ID+' , Amount paid : $'+row.AP+' , AmountOwed : $'+row.AO+' , date paid '+row.DP+'');
+              
+          
+    });
+    
+  });
+  db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['T',row.RN], function(err) {
+    if (err) {
+             return console.error(err.message);
+            }else{
+                  console.log(`Row(s) updated: ${this.changes}`);
+           }
+});
+  
 
+
+}
 
  
 
