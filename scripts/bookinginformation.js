@@ -6,8 +6,7 @@
       this.billr = 0.0;
       this.ID = _ID;
       this.choice = _type;
-      this.firstname = _firstname;
-     
+      this.firstname = _firstname;     
       this.roomnumber= roomnumber;
       this.datereserverd = _datereserved;
       this.Arrivaldate = _Arrivaldate;

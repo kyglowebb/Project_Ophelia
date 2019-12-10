@@ -1,4 +1,4 @@
-import  {addcustomer,checkcuslogin} from './databasehandler.js';
+
 
 
 function Validate(){
@@ -6,7 +6,12 @@ function Validate(){
     let password = document.getElementById("inputPassword").value;
     let valid = false; 
    
-    valid = checkcuslogin(username,password);
+    if(username == "martin@mail.com" & password == "1234"){
+        vaild = true;
+//hardcoded
+    }else{
+        valid =false;
+    }
     
     if (valid){
         alert("login was successful");

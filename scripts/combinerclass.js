@@ -22,7 +22,8 @@ let roomreseveravtioin = roomsDatabase;
 
 
 _ID++ ;
-let rese = new bookingformation(_ID,_type,_name,_email,_datereserved, _Arrivaldate,_enddate,roomnumber );
+//let rese = new bookingformation(_ID,_type,_name,_email,_datereserved, _Arrivaldate,_enddate,roomnumber );
+let rese = new bookingformation("1001","Prepaid",_name,_email,_datereserved, _Arrivaldate,_enddate,roomnumber );
 let gen = new pricegenerator(rese, Baseprice, AvgOcc);
 roomreservationin.check();
 roomreseveravtioin.add(rese);
@@ -37,3 +38,4 @@ console.log(rese.datereserverd);
 console.log(rese.Arrivaldate);
 console.log(gen.baserate);
 }
+combine();
