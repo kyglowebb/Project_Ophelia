@@ -7,9 +7,10 @@ let sqlCustmore = `SELECT CustomerName name,
                   ReservationID ID,
                   Password pass
                   FROM Customer`;
-let sqlEmployee = `SELECT EmployeeName EmpName, 
-                  AdminStatus AS,
-                  EmployeeId ID                 
+ let sqlEmployee = `SELECT EmployeeName name, 
+                  AdminStatus AStat,
+                  EmployeeId EmpID,
+                  Password pass
                   FROM Employee`;
 let sqlReservation =`SELECT ReservationID ID, 
                   AmountOwed AO,
@@ -51,8 +52,8 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
        console.log(`A row has been inserted with rowid ${this.lastID}`);
     }); 
   }         
-  function addEmployee(name,AdminStatus,EmployeeId,dateRese,ReseID){    
-    let x ='INSERT INTO Customer(CustomerName,Email,RoomNumber,DatesReserved,ReservationID) VALUES('+name+','+email+','+roomnumber+','+dateRese+','+ReseID+')';
+  function addEmployee(name,AdminStatus,EmployeeId,password){    
+    let x ='INSERT INTO Employee(EmployeeName,AdminStatus,EmployeeID,Password) VALUES('+name+','+AdminStatus+','+EmployeeId+','+password+')';
      db.run(x, [], function(err) {
     if (err) {
         return console.log(err.message);
@@ -60,17 +61,38 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
       // get the last insert id
      console.log(`A row has been inserted with rowid ${this.lastID}`);
   }); 
-}         
- 
-  function checkcuslogin(username,password){       
+}   
+function EditEmployeeAdStatus(EmployeeID){
+  db.all(sqlEmployee, [], (err, rows) => {
+    if (err) {
+              throw err;
+    }
+    rows.forEach((row) => {   
+             
+          if(row.pass == password && row.email == username){
+            console.log("logged in");
+              return true;
+              
+          }else{
+            console.log("wrong info");
+               return false;
+              
+         }      
+    });
+  });
 
-      db.all(sqlCustmore, [], (err, rows) => {
+}     
+ 
+  function checkEmplogin(username,password){       
+
+   
+      db.all(sqlEmployee, [], (err, rows) => {
           if (err) {
                     throw err;
           }
           rows.forEach((row) => {   
                    
-                if(row.pass == password && row.email == username){
+                if(row.pass == password && row.name == username){
                   console.log("logged in");
                     return true;
                     
@@ -82,6 +104,26 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
           });
         });
   }
+  function checkCuslogin(username,password){       
+
+    db.all(sqlCustmore, [], (err, rows) => {
+        if (err) {
+                  throw err;
+        }
+        rows.forEach((row) => {   
+                 
+              if(row.pass == password && row.email == username){
+                console.log("logged in");
+                  return true;
+                  
+              }else{
+                console.log("wrong info");
+                   return false;
+                  
+             }      
+        });
+      });
+}
    function getReservation(ID){
     db.all(sqlReservation, [], (err, rows) => {
       if (err) {
@@ -90,10 +132,10 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
       rows.forEach((row) => {    
             if(row.ID == ID){                
                 console.log('Reservation ID : '+row.ID+' , Amount paid : $'+row.AP+' , AmountOwed : $'+row.AO+' , date paid '+row.DP+'');
-                return true;
+                
             }else{                 
                  console.log("wrong info or Reservation Dose not exist");
-                 return false;
+                 
            }      
       });
     });
@@ -161,31 +203,30 @@ let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_R
 }
 
 
- function getNextAvailRoom(temp){
-  
-      db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['F',temp], function(err) {
-        if (err) {
-          return console.error(err.message);
-        }else{
-               console.log(`Row(s) updated: ${this.changes}`);
-              }
-       
-      
-             
+ function MakeRoomsAVA(){  
+   db.all(sqlRoom, [], (err, rows) => {
+    if (err) {
+              throw err;
+    }
+    rows.forEach((row) => {    
+          if(row.CA == 'F' ){                
+              console.log('Room Number  : '+row.RN+' , Ava? : $'+row.CA+' , Date reserved : $'+row.DR+' ');              
+                 
+              db.run('UPDATE Room SET CurrentlyAvailable=? WHERE RoomNumber=?', ['T',row.RN], function(err) {
+                if (err) {
+                         return console.error(err.message);
+                        }else{
+                              console.log(`Row(s) updated: ${this.changes}`);
+                       }
       });
-      
-
-       
-
-      
+          }
+    });    
+  });
 }
 
 
 
-
-
-
- checkNextAvailRoom();
+ 
 
 
 
