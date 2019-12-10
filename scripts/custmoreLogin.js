@@ -7,7 +7,7 @@ function Validate(){
     let valid = false; 
 
     username = "martin@mail";
-    password = "1234";   
+    password = "123";   
    
  checkCuslogin(username,password);
     
