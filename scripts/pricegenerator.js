@@ -1,9 +1,9 @@
 
-
+const 
 
 // used with combiner class
 //starts here
- export default  class pricegenerator
+   class pricegenerator
 {
     
 

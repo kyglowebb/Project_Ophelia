@@ -1,4 +1,7 @@
 
+ 
+
+
 const sqlite3 = require('sqlite3').verbose();
 let sqlCustmore = `SELECT CustomerName name, 
                   Email email,
@@ -104,7 +107,16 @@ function EditEmployeeAdStatus(EmployeeID){
           });
         });
   }
-  function checkCuslogin(username,password){       
+  
+  module.exports =  function checkCuslogin(username,password){ 
+
+    let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
+      if (err) {
+        console.error(err.message);
+      }
+      console.log('Connected to the Ophelias database.');
+    });
+          
 
     db.all(sqlCustmore, [], (err, rows) => {
         if (err) {
@@ -114,15 +126,16 @@ function EditEmployeeAdStatus(EmployeeID){
                  
               if(row.pass == password && row.email == username){
                 console.log("logged in");
-                  return true;
+                t = true;
                   
               }else{
                 console.log("wrong info");
-                   return false;
+                t =  false;
                   
              }      
         });
       });
+      
 }
    function getReservation(ID){
     db.all(sqlReservation, [], (err, rows) => {
@@ -227,8 +240,6 @@ function EditEmployeeAdStatus(EmployeeID){
 
 
  
-
-
 
 
 
