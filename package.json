@@ -21,6 +21,7 @@
   "homepage": "https://github.com/kyleewebb7/Project_Ophelia#readme",
   "dependencies": {
     "mysql": "^2.17.1",
-    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master"
+    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master",
+    "uniq": "^1.0.1"
   }
 }

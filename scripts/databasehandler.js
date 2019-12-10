@@ -36,7 +36,7 @@ let sqlAvalRoom = `SELECT  RoomNumber RN,
                   FROM Room
                   WHERE CurrentlyAvailable=?`;
 
- const fs = require('fs');
+ import fs from 'fs';
                   
 
 let vaild = 'F';
@@ -114,7 +114,7 @@ function EditEmployeeAdStatus(EmployeeID){
         });
   }
   
-  module.exports =  function checkCuslogin(username,password){ 
+  export default  function checkCuslogin(username,password){ 
 
     let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
       if (err) {
