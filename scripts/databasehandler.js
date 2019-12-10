@@ -16,7 +16,7 @@ let sqlCustmore = `SELECT CustomerName name,
                   Password pass
                   FROM Employee`;
 let sqlReservation =`SELECT ReservationID ID, 
-                  AmountOwed AO,
+                  AmountOwed AO,                  
                   AmountPaid AP,
                   DatePaid DP                
                   FROM Reservation`;
@@ -34,7 +34,11 @@ let sqlAvalRoom = `SELECT  RoomNumber RN,
                   
 
 let vaild = 'F';
-
+let reservation = { 
+  "ReseID"  :  "1001", 
+  "Start"   :  "Shark", 
+  "End"   :   ""  
+}
 
 // open the database
 let db = new sqlite3.Database('../database/Ophelias database.db', sqlite3.OPEN_READWRITE, (err) => {
